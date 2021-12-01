@@ -20,15 +20,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="dchen">
-<meta property="og:url" content="http://example.com/categories/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/index.html">
+  <meta name="description" content="leetcode-543 二叉树的直径">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-543 二叉树的直径">
+<meta property="og:url" content="http://example.com/2021/12/01/543/index.html">
 <meta property="og:site_name" content="dchen">
+<meta property="og:description" content="leetcode-543 二叉树的直径">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/helloCx/images/raw/master/uPic/WechatIMG42.png">
+<meta property="article:published_time" content="2021-12-01T14:34:09.602Z">
+<meta property="article:modified_time" content="2021-12-01T15:23:24.215Z">
 <meta property="article:author" content="chen">
+<meta property="article:tag" content="543">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/helloCx/images/raw/master/uPic/WechatIMG42.png">
 
-<link rel="canonical" href="http://example.com/categories/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/">
+<link rel="canonical" href="http://example.com/2021/12/01/543/">
 
 
 <script id="page-configurations">
@@ -36,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: 微信开发 | dchen</title>
+  <title>leetcode-543 二叉树的直径 | dchen</title>
   
 
 
@@ -154,51 +161,102 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">微信开发
-          <small>分类</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/01/543/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://gitee.com/helloCx/images/raw/master/20160527085617_zUrH5.thumb.1000_0.jpeg">
+      <meta itemprop="name" content="chen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dchen">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          leetcode-543 二叉树的直径
+        </h1>
+
+        <div class="post-meta">
+
+	 
+   
+     <span class="post-author" >
+       <span class="post-meta-item-text">作者&#58;</span>
+       dchen
+     </span>
+     <span class="post-meta-divider">|</span>
+   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-12-01 22:34:09 / 修改时间：23:23:24" itemprop="dateCreated datePublished" datetime="2021-12-01T22:34:09+08:00">2021-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">leetcode-543 二叉树的直径</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <p>题目链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/diameter-of-binary-tree/comments/">https://leetcode-cn.com/problems/diameter-of-binary-tree/comments/</a></p>
+<p>解题思路：</p>
+<p>分别遍历左节点和右节点，遍历完对比左节点和节点，那个长取那个。</p>
+<p><img src="https://gitee.com/helloCx/images/raw/master/uPic/WechatIMG42.png" alt="WechatIMG42">：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> max ;</span><br><span class="line"><span class="keyword">var</span> diameterOfBinaryTree = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">  max = <span class="number">0</span></span><br><span class="line">  deep(root)</span><br><span class="line">  <span class="keyword">return</span> max</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deep</span>(<span class="params">node</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!node)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> LD = deep(node.left);</span><br><span class="line">  <span class="keyword">let</span> RD = deep(node.right);</span><br><span class="line">  max = <span class="built_in">Math</span>.max(max,LD+RD);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.max (LD, RD) + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-10-15T19:54:32+08:00"
-              content="2021-10-15">
-          10-15
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/543/" rel="tag"># 543</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/15/%E5%BE%AE%E4%BF%A1%E5%AE%A2%E6%9C%8D/" itemprop="url">
-            <span itemprop="name">微信客服接入调研</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/31/%E9%97%A8%E5%BE%92%E8%AE%A1%E5%88%92-%E7%AE%97%E6%B3%95%E8%AF%BE%E3%80%90%E5%BC%80%E7%8F%AD%E5%85%B8%E7%A4%BC%E3%80%91/" rel="prev" title="“门徒计划” - 算法课【开班典礼】">
+      <i class="fa fa-chevron-left"></i> “门徒计划” - 算法课【开班典礼】
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
