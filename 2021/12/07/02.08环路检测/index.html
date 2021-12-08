@@ -20,20 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="常见的算法有对称加密、非对称加密、哈希算法">
+  <meta name="description" content="力扣面试题02.08-环路检测">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见加密算法">
-<meta property="og:url" content="http://example.com/2021/09/28/%E5%B8%B8%E8%A7%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="Leetcode-面试题02.08-环路检测">
+<meta property="og:url" content="http://example.com/2021/12/07/02.08%E7%8E%AF%E8%B7%AF%E6%A3%80%E6%B5%8B/index.html">
 <meta property="og:site_name" content="dchen">
-<meta property="og:description" content="常见的算法有对称加密、非对称加密、哈希算法">
+<meta property="og:description" content="力扣面试题02.08-环路检测">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-28T02:28:20.926Z">
-<meta property="article:modified_time" content="2021-09-28T03:16:08.190Z">
+<meta property="article:published_time" content="2021-12-07T15:27:15.540Z">
+<meta property="article:modified_time" content="2021-12-07T16:13:24.517Z">
 <meta property="article:author" content="chen">
-<meta property="article:tag" content="加密算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/09/28/%E5%B8%B8%E8%A7%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
+<link rel="canonical" href="http://example.com/2021/12/07/02.08%E7%8E%AF%E8%B7%AF%E6%A3%80%E6%B5%8B/">
 
 
 <script id="page-configurations">
@@ -46,7 +45,7 @@
   };
 </script>
 
-  <title>常见加密算法 | dchen</title>
+  <title>Leetcode-面试题02.08-环路检测 | dchen</title>
   
 
 
@@ -166,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/28/%E5%B8%B8%E8%A7%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/07/02.08%E7%8E%AF%E8%B7%AF%E6%A3%80%E6%B5%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://gitee.com/helloCx/images/raw/master/20160527085617_zUrH5.thumb.1000_0.jpeg">
@@ -179,7 +178,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          常见加密算法
+          Leetcode-面试题02.08-环路检测
         </h1>
 
         <div class="post-meta">
@@ -197,22 +196,28 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-09-28 10:28:20 / 修改时间：11:16:08" itemprop="dateCreated datePublished" datetime="2021-09-28T10:28:20+08:00">2021-09-28</time>
+              <time title="创建时间：2021-12-07 23:27:15" itemprop="dateCreated datePublished" datetime="2021-12-07T23:27:15+08:00">2021-12-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-12-08 00:13:24" itemprop="dateModified" datetime="2021-12-08T00:13:24+08:00">2021-12-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">加密</span></a>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">常见的算法有对称加密、非对称加密、哈希算法</div>
+            <div class="post-description">力扣面试题02.08-环路检测</div>
 
         </div>
       </header>
@@ -223,19 +228,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="常见加密算法"><a href="#常见加密算法" class="headerlink" title="常见加密算法"></a>常见加密算法</h3><h4 id="对称加密算法："><a href="#对称加密算法：" class="headerlink" title="对称加密算法："></a>对称加密算法：</h4><p>​    加密和解密用的都是同一个秘钥，常见的算法：DES、3DES等</p>
-<p>​    数据-&gt;加密（秘钥）-&gt;密文 -&gt;解密（秘钥）-&gt;数据</p>
-<p>​    </p>
-<h4 id="非对称加密算法："><a href="#非对称加密算法：" class="headerlink" title="非对称加密算法："></a>非对称加密算法：</h4><p>​    加密和解密用的使用不同的秘钥，且公开给大家的秘钥叫做公钥，自己保存的秘钥为私钥。公钥加密的数据只有私钥能接开，私钥加密的数据只有公钥能解开。非对称加密的原理是“欧拉函数”。常见的非对称加密算法：RSA等</p>
-<p>​    数据-&gt;加密（公钥）-&gt;密文 -&gt;解密（私钥）-&gt;数据    </p>
-<p>​    数据-&gt;加密（私钥）-&gt;密文 -&gt;解密（公钥）-&gt;数据</p>
-<h4 id="哈希算法"><a href="#哈希算法" class="headerlink" title="哈希算法"></a>哈希算法</h4><p>哈希算法（Hash）又称摘要算法（Digest），它的作用是：对任意一组输入数据进行计算，得到一个固定长度的输出摘要。常见的哈希算法：MD5等。</p>
-<p>哈希算法最重要的特点就是：</p>
-<ul>
-<li>相同的输入一定得到相同的输出；</li>
-<li>不同的输入大概率得到不同的输出。</li>
-</ul>
-<p>哈希算法的目的就是为了验证原始数据是否被篡改。</p>
+        <h1 id="Leetcode-面试题02-08-环路检测"><a href="#Leetcode-面试题02-08-环路检测" class="headerlink" title="Leetcode-面试题02.08-环路检测"></a>Leetcode-面试题02.08-环路检测</h1><p>面试题02.08-环路检测，如果用快慢指针来解题，那么本质是一道数学题。</p>
+<h3 id="使用快慢指针解题："><a href="#使用快慢指针解题：" class="headerlink" title="使用快慢指针解题："></a>使用快慢指针解题：</h3><ol>
+<li><p>定义3个变量</p>
+<ol>
+<li> fast：快指针，每次走两步; </li>
+<li>slow：慢指针，每次走一步; </li>
+<li>rs：链表起始的位置;</li>
+</ol>
+</li>
+<li><p>如果链表有“环”那么fast与slow一定会在环里相遇，当fast === null 或者 fast.next === null 那么意味着，改链表没有环；</p>
+</li>
+<li><p>接下来我们求“环”的起点，首先我们先明确的几个点</p>
+<ol>
+<li>fast与slow的相遇永远是fast追上了slow</li>
+<li>还要记住几个关键位置，“环”的起点，以及fast与slow相遇的位置</li>
+</ol>
+</li>
+<li><p>假设：当slow第一次走到“环”的起点时，需要走 a 步；那么这时候fast就会距离“环”起点 a 的地方，因为fast = 2倍slow；</p>
+</li>
+<li><p>当slow走到“环”的起点时，我们思考，fast什么时候能追上slow？fast是slow的两倍，那么每走一次fast就跟slow近了一步。</p>
+</li>
+<li><p>假设我们fast和slow同时走了X步，使得fast追上了slow，那么fast在“环”里走过的路程为 2x+a，这时候可能很多人会疑惑，算这个有什么用？回过头我们看slow，由于slow每次走了一步，那么这时候slow在环里走了已经x步，然而这时fast刚好在环里走了2x+a的路程，那么2x+a-x 就等于 x+a ，这也就意味着，从“环”的起点开始，每次走一步，走x+a步那么就会再次回到“环”的起点</p>
+</li>
+<li><p>这时候slow已经走了x步了，同时在继续走a步那么就能回到“环”的起始位置。恰好从头部开始往后走a步也能到达“环”的起始位置。</p>
+</li>
+<li><p>有了上述逻辑，那么我们先通过 fast === slow，找到fast与slow在环中相遇的位置，紧接着在使slow往后走，同时让rs从链表的头部开始走，每次走一步，一共走a步，那么他们必然在“环”的起始位置相遇时。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上述8中的逻辑，rs从链表头部开始走，slow从环中与fast的相遇点往后走，两个人同时走一步，在a步后必然相遇。</span></span><br><span class="line"><span class="keyword">let</span> rs = head</span><br><span class="line"><span class="keyword">while</span>(rs !== slow)&#123;</span><br><span class="line">	rs = rs.next;</span><br><span class="line">	slow = slow.next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> slow</span><br></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> detectCycle = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> fast = head ;</span><br><span class="line">    <span class="keyword">let</span> slow = head ;</span><br><span class="line">    <span class="keyword">if</span>(head &amp;&amp; head.next)&#123;</span><br><span class="line">        <span class="keyword">do</span>  &#123;</span><br><span class="line">                fast = fast.next.next;</span><br><span class="line">                slow = slow.next;</span><br><span class="line">            &#125;  <span class="keyword">while</span>((fast!==<span class="literal">null</span> &amp;&amp; fast.next!==<span class="literal">null</span>) &amp;&amp; (fast !== slow))</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(fast===<span class="literal">null</span> || fast.next===<span class="literal">null</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">let</span> rs = head</span><br><span class="line">                <span class="keyword">while</span>(rs !== slow)&#123;</span><br><span class="line">                rs = rs.next;</span><br><span class="line">                slow = slow.next;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> slow</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -244,9 +266,6 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" rel="tag"># 加密算法</a>
-          </div>
 
         
 
@@ -254,12 +273,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/08/25/flex%E5%81%9A%E8%A1%A8%E6%A0%BC/" rel="prev" title="用flex做类似表格样式">
-      <i class="fa fa-chevron-left"></i> 用flex做类似表格样式
+    <a href="/2021/12/06/1670-%E8%AE%BE%E8%AE%A1%E5%89%8D%E4%B8%AD%E5%90%8E%E9%98%9F%E5%88%97/" rel="prev" title="Leetcode-1670-设计前中后队列">
+      <i class="fa fa-chevron-left"></i> Leetcode-1670-设计前中后队列
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/10/15/%E5%BE%AE%E4%BF%A1%E5%AE%A2%E6%9C%8D/" rel="next" title="微信客服接入调研">
-      微信客服接入调研 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/12/08/offer10/" rel="next" title="Leetcode-剑指 Offer 10- I. 斐波那契数列">
+      Leetcode-剑指 Offer 10- I. 斐波那契数列 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -319,7 +338,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">常见加密算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">对称加密算法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">非对称加密算法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">哈希算法</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9802-08-%E7%8E%AF%E8%B7%AF%E6%A3%80%E6%B5%8B"><span class="nav-number">1.</span> <span class="nav-text">Leetcode-面试题02.08-环路检测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88%E8%A7%A3%E9%A2%98%EF%BC%9A"><span class="nav-number">1.0.1.</span> <span class="nav-text">使用快慢指针解题：</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
