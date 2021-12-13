@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="常见的算法有对称加密、非对称加密、哈希算法">
+  <meta name="description" content="Leetcode-105.从前序与中序遍历序列构造二叉树栈为队">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见加密算法">
-<meta property="og:url" content="http://example.com/2021/09/28/%E5%B8%B8%E8%A7%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="Leetcode-105.从前序与中序遍历序列构造二叉树">
+<meta property="og:url" content="http://example.com/2021/12/14/105-%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
 <meta property="og:site_name" content="dchen">
-<meta property="og:description" content="常见的算法有对称加密、非对称加密、哈希算法">
+<meta property="og:description" content="Leetcode-105.从前序与中序遍历序列构造二叉树栈为队">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-28T02:28:20.926Z">
-<meta property="article:modified_time" content="2021-09-28T03:16:08.190Z">
+<meta property="article:published_time" content="2021-12-13T16:16:25.000Z">
+<meta property="article:modified_time" content="2021-12-13T16:16:53.088Z">
 <meta property="article:author" content="chen">
-<meta property="article:tag" content="加密算法">
+<meta property="article:tag" content="面试题03.04">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/09/28/%E5%B8%B8%E8%A7%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
+<link rel="canonical" href="http://example.com/2021/12/14/105-%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>常见加密算法 | dchen</title>
+  <title>Leetcode-105.从前序与中序遍历序列构造二叉树 | dchen</title>
   
 
 
@@ -166,7 +166,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/28/%E5%B8%B8%E8%A7%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/14/105-%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://gitee.com/helloCx/images/raw/master/20160527085617_zUrH5.thumb.1000_0.jpeg">
@@ -179,7 +179,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          常见加密算法
+          Leetcode-105.从前序与中序遍历序列构造二叉树
         </h1>
 
         <div class="post-meta">
@@ -199,7 +199,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-09-28 10:28:20 / 修改时间：11:16:08" itemprop="dateCreated datePublished" datetime="2021-09-28T10:28:20+08:00">2021-09-28</time>
+              <time title="创建时间：2021-12-14 00:16:25 / 修改时间：00:16:53" itemprop="dateCreated datePublished" datetime="2021-12-14T00:16:25+08:00">2021-12-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -207,12 +207,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">加密</span></a>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">常见的算法有对称加密、非对称加密、哈希算法</div>
+            <div class="post-description">Leetcode-105.从前序与中序遍历序列构造二叉树栈为队</div>
 
         </div>
       </header>
@@ -223,19 +223,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="常见加密算法"><a href="#常见加密算法" class="headerlink" title="常见加密算法"></a>常见加密算法</h3><h4 id="对称加密算法："><a href="#对称加密算法：" class="headerlink" title="对称加密算法："></a>对称加密算法：</h4><p>​    加密和解密用的都是同一个秘钥，常见的算法：DES、3DES等</p>
-<p>​    数据-&gt;加密（秘钥）-&gt;密文 -&gt;解密（秘钥）-&gt;数据</p>
-<p>​    </p>
-<h4 id="非对称加密算法："><a href="#非对称加密算法：" class="headerlink" title="非对称加密算法："></a>非对称加密算法：</h4><p>​    加密和解密用的使用不同的秘钥，且公开给大家的秘钥叫做公钥，自己保存的秘钥为私钥。公钥加密的数据只有私钥能接开，私钥加密的数据只有公钥能解开。非对称加密的原理是“欧拉函数”。常见的非对称加密算法：RSA等</p>
-<p>​    数据-&gt;加密（公钥）-&gt;密文 -&gt;解密（私钥）-&gt;数据    </p>
-<p>​    数据-&gt;加密（私钥）-&gt;密文 -&gt;解密（公钥）-&gt;数据</p>
-<h4 id="哈希算法"><a href="#哈希算法" class="headerlink" title="哈希算法"></a>哈希算法</h4><p>哈希算法（Hash）又称摘要算法（Digest），它的作用是：对任意一组输入数据进行计算，得到一个固定长度的输出摘要。常见的哈希算法：MD5等。</p>
-<p>哈希算法最重要的特点就是：</p>
-<ul>
-<li>相同的输入一定得到相同的输出；</li>
-<li>不同的输入大概率得到不同的输出。</li>
-</ul>
-<p>哈希算法的目的就是为了验证原始数据是否被篡改。</p>
+        <h1 id="Leetcode-105-从前序与中序遍历序列构造二叉树"><a href="#Leetcode-105-从前序与中序遍历序列构造二叉树" class="headerlink" title="Leetcode-105.从前序与中序遍历序列构造二叉树"></a>Leetcode-105.从前序与中序遍历序列构造二叉树</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一棵树的前序遍历 <code>preorder</code> 与中序遍历 <code>inorder</code>。请构造二叉树并返回其根节点。</p>
+<p>输入: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]<br>输出: [3,9,20,null,null,15,7]</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>回顾一下树的三种遍历：</p>
+<p>​    根左右(先序)<br>​    左根右(中序)<br>​    左右根(后序)</p>
+<p>题目给定我们前序preorder和中序inorder，且值不会重复；</p>
+<ol>
+<li><p>通过前序，我们可以获得根preorder[0];</p>
+</li>
+<li><p>再在中序中找到根的index；</p>
+</li>
+<li><p>那么可以将preorder 与 inorder各分为两段；array.slice()方法为前闭后开；</p>
+<ol>
+<li>preorderLeft： [1，index + 1) ；preorderRight:[index+1,preorder.length)</li>
+<li>inorderLeft： [0，index) ；inorderRight:[index+1,preorder.length)</li>
+<li>根 ：preorder[0]  和 inorder[index] （preorder[0] === inorder[index] ）</li>
+</ol>
+</li>
+<li><p>开始递归，并创建TreeNode；</p>
+</li>
+<li><p>判断退出条件，preorder.length==1时那么没有足够的长度进行slice()操作，那么slice()会返回一个空数组，那么我们可以判断preorder.length === 0 那么就返回null</p>
+</li>
+</ol>
+<p>代码如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val, left, right) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.left = (left===undefined ? null : left)</span></span><br><span class="line"><span class="comment"> *     this.right = (right===undefined ? null : right)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">preorder</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">inorder</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;TreeNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> buildTree = <span class="function"><span class="keyword">function</span>(<span class="params">preorder, inorder</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(preorder === -<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(preorder.length == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> index  = inorder.indexOf(preorder[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> preorderLeft = preorder.slice(<span class="number">1</span>,index + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">let</span> preorderRight = preorder.slice(index + <span class="number">1</span>,preorder.length);</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">let</span> inorderLeft = inorder.slice(<span class="number">0</span>,index);</span><br><span class="line">    <span class="keyword">let</span> inorderRight = inorder.slice(index + <span class="number">1</span> , inorder.length);</span><br><span class="line">  </span><br><span class="line">  	<span class="keyword">let</span> left = buildTree(preorderLeft,inorderLeft);</span><br><span class="line">  	<span class="keyword">let</span> right = buildTree(preorderRight,inorderRight)</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>],left,right)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -245,7 +257,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" rel="tag"># 加密算法</a>
+              <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%9803-04/" rel="tag"># 面试题03.04</a>
           </div>
 
         
@@ -254,13 +266,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/08/25/flex%E5%81%9A%E8%A1%A8%E6%A0%BC/" rel="prev" title="用flex做类似表格样式">
-      <i class="fa fa-chevron-left"></i> 用flex做类似表格样式
+    <a href="/2021/12/12/206-%E9%93%BE%E8%A1%A8%E5%8F%8D%E8%BD%AC/" rel="prev" title="Leetcode-206-链表反转">
+      <i class="fa fa-chevron-left"></i> Leetcode-206-链表反转
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/10/15/%E5%BE%AE%E4%BF%A1%E5%AE%A2%E6%9C%8D/" rel="next" title="微信客服接入调研">
-      微信客服接入调研 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -319,7 +328,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">常见加密算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">对称加密算法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">非对称加密算法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">哈希算法</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Leetcode-105-%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.</span> <span class="nav-text">Leetcode-105.从前序与中序遍历序列构造二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.0.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">1.0.2.</span> <span class="nav-text">题解</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
