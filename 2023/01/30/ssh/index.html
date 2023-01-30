@@ -20,19 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="LeetCode 884-比较含退格的字符串">
+  <meta name="description" content="SSH原理以及github的SSH配置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-884-比较含退格的字符串">
-<meta property="og:url" content="http://example.com/2022/02/08/844-%E6%AF%94%E8%BE%83%E5%90%AB%E9%80%80%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
+<meta property="og:title" content="SSH原理">
+<meta property="og:url" content="http://example.com/2023/01/30/ssh/index.html">
 <meta property="og:site_name" content="dchen">
-<meta property="og:description" content="LeetCode 884-比较含退格的字符串">
+<meta property="og:description" content="SSH原理以及github的SSH配置">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-08T12:15:21.882Z">
-<meta property="article:modified_time" content="2022-02-08T12:19:46.905Z">
+<meta property="article:published_time" content="2023-01-30T05:31:58.403Z">
+<meta property="article:modified_time" content="2023-01-30T07:03:26.730Z">
 <meta property="article:author" content="chen">
+<meta property="article:tag" content="SSH">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/02/08/844-%E6%AF%94%E8%BE%83%E5%90%AB%E9%80%80%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+<link rel="canonical" href="http://example.com/2023/01/30/ssh/">
 
 
 <script id="page-configurations">
@@ -45,7 +46,7 @@
   };
 </script>
 
-  <title>Leetcode-884-比较含退格的字符串 | dchen</title>
+  <title>SSH原理 | dchen</title>
   
 
 
@@ -165,7 +166,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/08/844-%E6%AF%94%E8%BE%83%E5%90%AB%E9%80%80%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/30/ssh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
@@ -178,7 +179,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Leetcode-884-比较含退格的字符串
+          SSH原理
         </h1>
 
         <div class="post-meta">
@@ -198,7 +199,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-02-08 20:15:21 / 修改时间：20:19:46" itemprop="dateCreated datePublished" datetime="2022-02-08T20:15:21+08:00">2022-02-08</time>
+              <time title="创建时间：2023-01-30 13:31:58 / 修改时间：15:03:26" itemprop="dateCreated datePublished" datetime="2023-01-30T13:31:58+08:00">2023-01-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -206,12 +207,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                  <a href="/categories/SSH/" itemprop="url" rel="index"><span itemprop="name">SSH</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">LeetCode 884-比较含退格的字符串</div>
+            <div class="post-description">SSH原理以及github的SSH配置</div>
 
         </div>
       </header>
@@ -222,12 +223,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定 s 和 t 两个字符串，当它们分别被输入到空白的文本编辑器后，请你判断二者是否相等。# 代表退格字符。</p>
-<p>如果相等，返回 true ；否则，返回 false 。</p>
-<p>注意：如果对空文本输入退格字符，文本继续为空。</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>使用双指针，倒序遍历</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">var backspaceCompare = function(s, t) &#123;</span><br><span class="line">    s = s.split(&#x27;&#x27;)</span><br><span class="line">    t = t.split(&#x27;&#x27;)</span><br><span class="line">    let skipS = 0, skipT = 0;</span><br><span class="line">    for(let i = s.length-1 ,j=t.length-1; i&gt;=0 || j&gt;= 0;j--,i--)&#123;</span><br><span class="line">        while(i&gt;=0)&#123;</span><br><span class="line">            if(s[i] === &#x27;#&#x27;)&#123;</span><br><span class="line">                skipS++;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;else if(skipS &gt; 0)&#123;</span><br><span class="line">                skipS--;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        while(j&gt;=0)&#123;</span><br><span class="line">            if(t[j] === &#x27;#&#x27;)&#123;</span><br><span class="line">                skipT++;</span><br><span class="line">                j--</span><br><span class="line">            &#125;else if (skipT &gt; 0)&#123;</span><br><span class="line">                skipT--;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(i&gt;=0 &amp;&amp; j&gt;=0)&#123;</span><br><span class="line">            if(s[i] !== t[j])&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else if(i &gt;= 0 || j &gt;= 0)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return true</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h3 id="SSH介绍"><a href="#SSH介绍" class="headerlink" title="SSH介绍"></a>SSH介绍</h3><p><strong>安全外壳协议</strong>（Secure Shell Protocol，简称<strong>SSH</strong>）是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。SSH通过在网络中建立安全隧道来实现SSH客户端与服务器之间的连接</p>
+<h3 id="SSH登录方式"><a href="#SSH登录方式" class="headerlink" title="SSH登录方式"></a>SSH登录方式</h3><p>在客户端来看，SSH提供两种级别的安全验证。</p>
+<ul>
+<li>第一种级别（基于密码的安全验证），知道帐号和密码，就可以登录到远程主机，并且所有传输的数据都会被SSH传输层协议加密。但是，可能会有别的服务器在冒充真正的服务器，但只要客户端校验主机公钥，在服务器私钥不泄露的前提下就能避免被“中间人”攻击。</li>
+<li>第二种级别（基于<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86">密钥</a>的安全验证），需要依靠密钥，也就是你必须为自己创建一对密钥，并把公钥放在需要访问的服务器上。客户端软件会向服务器发出请求，请求用你的私钥进行安全验证并发送使用私钥对会话ID等信息的签名。服务器收到请求之后，先在你在该服务器的用户根目录下寻找你的公钥，然后把它和你发送过来的公钥进行比较，并用公钥检验签名是否正确。如果两个密钥一致，且签名正确，服务器就认为用户登录成功。</li>
+</ul>
+<p>在服务器端来看，SSH也提供安全验证。</p>
+<ul>
+<li>服务器将自己的公钥分发给相关的客户端，并将密钥交换过程中的公开信息与协商密钥的哈希值的签名发送给客户端，客户端将获取的服务器公钥计算指纹并与其他安全信道获得的公钥指纹相比对并验证主机签名。</li>
+<li>存在一个密钥认证中心，所有提供服务的主机都将自己的公钥提交给认证中心，公钥认证中心给服务端颁发证书，而任何作为客户端的主机则只要保存一份认证中心的公钥就可以了。在这种模式下，服务器会发送认证中心提供给主机的证书与主机对密钥交换过程中公开信息的签名。客户端只需要验证证书的有效性并验证签名。</li>
+</ul>
+<h3 id="github使用SSH登录"><a href="#github使用SSH登录" class="headerlink" title="github使用SSH登录"></a>github使用SSH登录</h3><ol>
+<li><p>找到目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.SSH</span><br></pre></td></tr></table></figure></li>
+<li><p>创建SSH key</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SSH-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
 
+<p>代码参数含义：</p>
+<p>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>-f 指定密钥文件存储文件名。</p>
+<blockquote>
+<p>Enter passphrase (empty for no passphrase):<br>Enter same passphrase again:</p>
+<p>上面两个相当于口令，设置了每次使用就会需要口令</p>
+</blockquote>
+</li>
+<li><p>复制对应的.pub文件到github</p>
+<p>![image-20230130145944481](/Users/joey/Library/Application Support/typora-user-images/image-20230130145944481.png)</p>
+</li>
+<li><p>检验</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo ssh -T git@github.com</span><br><span class="line"><span class="comment">// 成功显示 Hi helloCx! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br><span class="line"><span class="comment">// 失败在使用</span></span><br><span class="line">ssh-add -k ~<span class="regexp">/.ssh/</span>你的私钥</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1594881">SSH登录原理</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/12/SSH_remote_login.html">SSH原理与运用</a></li>
+<li><a target="_blank" rel="noopener" href="https://hanpanpan200.github.io/2019/10/14/setup-multiple-git-accounts-by-ssh-config/">SSH</a></li>
+</ul>
 
     </div>
 
@@ -236,6 +266,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SSH/" rel="tag"># SSH</a>
+          </div>
 
         
 
@@ -243,13 +276,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/12/14/105-%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="prev" title="Leetcode-105.从前序与中序遍历序列构造二叉树">
-      <i class="fa fa-chevron-left"></i> Leetcode-105.从前序与中序遍历序列构造二叉树
+    <a href="/2022/10/31/%E7%BB%93%E5%90%88JSX%E5%AE%9E%E7%8E%B0%E7%B1%BB%E8%A1%A8%E6%A0%BC%E7%BB%84%E4%BB%B6-%E8%BF%9B%E9%98%B6%EF%BC%88vue2%EF%BC%89/" rel="prev" title="结合JSX实现自定义内容的类表格组件-进阶">
+      <i class="fa fa-chevron-left"></i> 结合JSX实现自定义内容的类表格组件-进阶
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/02/08/946-%E9%AA%8C%E8%AF%81%E6%A0%88%E5%BA%8F%E5%88%97/" rel="next" title="Leetcode-946-验证栈序列">
-      Leetcode-946-验证栈序列 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -308,7 +338,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">SSH介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">SSH登录方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github%E4%BD%BF%E7%94%A8SSH%E7%99%BB%E5%BD%95"><span class="nav-number">3.</span> <span class="nav-text">github使用SSH登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
