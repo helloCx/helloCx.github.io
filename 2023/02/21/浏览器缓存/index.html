@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="浏览器缓存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器缓存">
+<meta property="og:url" content="http://example.com/2023/02/21/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/index.html">
+<meta property="og:site_name" content="dchen">
+<meta property="og:description" content="浏览器缓存">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-21T00:53:04.070Z">
+<meta property="article:modified_time" content="2023-02-21T02:13:28.935Z">
+<meta property="article:author" content="chen">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/02/21/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>浏览器缓存 | dchen</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">dchen</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/21/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
+      <meta itemprop="name" content="chen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dchen">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浏览器缓存
+        </h1>
+
+        <div class="post-meta">
+
+	 
+   
+     <span class="post-author" >
+       <span class="post-meta-item-text">作者&#58;</span>
+       dchen
+     </span>
+     <span class="post-meta-divider">|</span>
+   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-02-21 08:53:04 / 修改时间：10:13:28" itemprop="dateCreated datePublished" datetime="2023-02-21T08:53:04+08:00">2023-02-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">浏览器</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">浏览器缓存</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h3><h4 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h4><p>强缓存有Cache-Control、Expirse；</p>
+<p>Cache-Control还需要根据里面的内容判断是否是强缓存</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>是否强缓存</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>max-age=xxxx</td>
+<td>是</td>
+</tr>
+<tr>
+<td>no-cache</td>
+<td>否</td>
+</tr>
+<tr>
+<td>no-store</td>
+<td>不缓存</td>
+</tr>
+</tbody></table>
+<p>在max-age一栏中，还可能有别的字段比如：</p>
+<p>cache-control: max-age=xxxx, public <code>public</code> 表示客户端和代理服务器（如CDN）都可以缓存；</p>
+<p>cache-control: max-age=xxxx, private <code>private</code>（默认值）表示只有客户端可以缓存；</p>
+<p>cache-control: max-age=xxxx, immutable <code>immutable</code> 客户端在xxx秒的有效期内，如果有请求该资源的需求的话就直接读取缓存,statu code:200 ，即使用户做了刷新操作，也不向服务器发起http请求； <code>immutable</code>是facebook团队向制定 HTTP 标准的 IETF 工作组提到的建议：他们希望 HTTP 协议能给 Cache-Control 响应头增加一个属性字段表明该资源永不过期，浏览器就没必要再为这些资源发送条件请求了。 <a href="https://link.juejin.cn/?target=https://www.cnblogs.com/ziyunfei/p/5642796.html">这里有一篇文章演示了immutable</a></p>
+<p>Expirse</p>
+<p>Expirse使用的是绝对时间，这样会导致当服务器时间跟客户端时间有偏差时，会影响缓存，使用cache-control中max-age是更好的选择。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expirse：Sun, 15 Mar 2020 07:03:32 GMT</span><br></pre></td></tr></table></figure>
+
+
+
+<p>PS: <code>Expires</code> 和 <code>Cache-Control</code>可以在服务端配置为同时启用，同时启用时<code>Cache-Control</code>优先级更高。</p>
+<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><p>协商缓存就是强制缓存失效后，或者强缓存设置了<code>cache-control: no-cache</code>，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程：</p>
+<p>协商缓存由两对值来设置的： <code>Last-Modified/If-Modified-Since</code> 和 <code>ETag/If-None-Match</code></p>
+<h5 id="Last-Modified"><a href="#Last-Modified" class="headerlink" title="Last-Modified"></a>Last-Modified</h5><p>​    服务端在response header中返回请求的资源上次更新时间（<code>Last-Modified</code>的值）会在记录文件最后修改时间</p>
+<p>​    当浏览器下次请求时，request header中带上<code>If-Modified-Since</code>(即保存的<code>Last-Modified</code>的值)。根据浏览器发送的修改时间和服务端的wh修改时间进行比对，一致的话代码资源没有改变，服务端返回正文为空的响应，让浏览器在缓存中读取资源，从而减少请求消耗。</p>
+<p>缺点：</p>
+<ol>
+<li>从上图可以看到<code>Last-Modified</code>保存的是绝对时间，并且是精确到秒，所以如果资源在1秒内修改了多次的话，那就无法识别；</li>
+<li>对于文件只改变了修改时间，内容不变，这时候也会使缓存失效，其实这个时候我们是不希望客户端重新请求的；</li>
+<li>某些服务器不能精确的得到文件的最后修改时间；</li>
+</ol>
+<h5 id="Etag"><a href="#Etag" class="headerlink" title="Etag"></a>Etag</h5><ol>
+<li>浏览器第一次发送一个请求得到<code>ETag</code>的值，然后在下一次请求request header中带上<code>If-none-match</code>（即保存的ETag的值）；</li>
+<li>通过发送的<code>ETag</code>的值和服务器重新生成的<code>ETag</code>的值进行比对，如果一致代表资源没有改变，服务器返回的正文为空的响应，让浏览器从缓存中读取资源，从而减少请求消耗。</li>
+<li><code>ETag</code>的工作机制跟<code>Last-Modified</code>基本一样。但是，<code>ETag</code>是对资源内容使用抗碰撞散列函数（我也不知道是啥），使用最近修改的时间戳的哈希值。<code>ETag</code>解决了<code>Last-Modified</code>上述问题。</li>
+</ol>
+<p>缺点：<code>ETag</code>虽然能解决问题，但也并非完美，<code>ETag</code>每次服务端生成都需要进行读写操作（因为要生成<code>hash</code>），而<code>Last-Modified</code>只需要读取操作，<code>ETag</code>消耗更大一些。</p>
+<p>PS：<code>Last-Modified</code> 和 <code>ETag</code>同样可以同时配置，服务器会优先验证<code>ETag</code>，一致的情况下，才会继续比对<code>Last-Modified</code>，最后才决定是否返回304。</p>
+<h5 id="Etag的生成"><a href="#Etag的生成" class="headerlink" title="Etag的生成"></a>Etag的生成</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ETag: W/<span class="string">&quot;&lt;etag_value&gt;&quot;</span> </span><br><span class="line"><span class="attr">ETag</span>: <span class="string">&quot;&lt;etag_value&gt;&quot;</span> </span><br></pre></td></tr></table></figure>
+
+<p>W/(可选)：’W/‘(大小写敏感) 表示使用弱验证器。弱验证器很容易生成，但不利于比较。强验证器是比较的理想选择，但很难有效地生成。相同资源的两个弱 Etag 值可能语义等同，但不是每个字节都相同。</p>
+<p>“<etag_value>“：实体标签唯一地表示所请求的资源。它们是位于双引号之间的 ASCII 字符串(如 “2c-1799c10ab70” )。没有明确指定生成 ETag 值的方法。通常是使用内容的散列、最后修改时间戳的哈希值或简单地使用版本号。比如，MDN 使用 wiki 内容的十六进制数字的哈希值。</p>
+<p>PS：nginx 使用的 Etag为 时间戳 + 内容长度</p>
+<h5 id="弱验证与强验证"><a href="#弱验证与强验证" class="headerlink" title="弱验证与强验证"></a>弱验证与强验证</h5><p>强校验：针对专用信息、独有信息、不可或缺的信息进行验证，这些验证与检测用户身份有关</p>
+<p>弱校验：可以对使用浏览器缓存的应用有较大的帮助，特别是富客户端应用</p>
+<p>大概是说前者具有唯一性，不可重现，可作为认证依据，后者不具有唯一性，只能作为超时之类的辅助判别依据</p>
+<p>参考</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6881537542450216973">浏览器的强缓存和协商缓存</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.51cto.com/article/663816.html">etag生成</a></p>
+<p><a target="_blank" rel="noopener" href="https://bbs.csdn.net/topics/395827108">强验证与弱验证</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/30/ssh/" rel="prev" title="SSH原理">
+      <i class="fa fa-chevron-left"></i> SSH原理
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98"><span class="nav-number">1.</span> <span class="nav-text">浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="nav-number">1.1.</span> <span class="nav-text">强缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="nav-number">1.2.</span> <span class="nav-text">协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Last-Modified"><span class="nav-number">1.2.1.</span> <span class="nav-text">Last-Modified</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Etag"><span class="nav-number">1.2.2.</span> <span class="nav-text">Etag</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Etag%E7%9A%84%E7%94%9F%E6%88%90"><span class="nav-number">1.2.3.</span> <span class="nav-text">Etag的生成</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%B1%E9%AA%8C%E8%AF%81%E4%B8%8E%E5%BC%BA%E9%AA%8C%E8%AF%81"><span class="nav-number">1.2.4.</span> <span class="nav-text">弱验证与强验证</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="chen"
+      src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
+  <p class="site-author-name" itemprop="name">chen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/helloCx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;helloCx" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1004711601@qq.com" title="E-Mail → mailto:1004711601@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
