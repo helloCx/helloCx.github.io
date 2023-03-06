@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="浏览器的多进程与JS的事件循环机制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器的多进程与JS的事件循环机制">
+<meta property="og:url" content="http://example.com/2022/10/27/EventLoop/index.html">
+<meta property="og:site_name" content="dchen">
+<meta property="og:description" content="浏览器的多进程与JS的事件循环机制">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/IMG_2140188C7983-1.jpeg">
+<meta property="article:published_time" content="2022-10-27T02:43:14.000Z">
+<meta property="article:modified_time" content="2022-10-27T02:43:14.000Z">
+<meta property="article:author" content="chen">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/IMG_2140188C7983-1.jpeg">
+
+<link rel="canonical" href="http://example.com/2022/10/27/EventLoop/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>浏览器的多进程与JS的事件循环机制 | dchen</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">dchen</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/27/EventLoop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
+      <meta itemprop="name" content="chen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dchen">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浏览器的多进程与JS的事件循环机制
+        </h1>
+
+        <div class="post-meta">
+
+	 
+   
+     <span class="post-author" >
+       <span class="post-meta-item-text">作者&#58;</span>
+       dchen
+     </span>
+     <span class="post-meta-divider">|</span>
+   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-27 10:43:14" itemprop="dateCreated datePublished" datetime="2022-10-27T10:43:14+08:00">2022-10-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">浏览器的多进程与JS的事件循环机制</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="浏览器的多进程-与-JS的事件循环机制"><a href="#浏览器的多进程-与-JS的事件循环机制" class="headerlink" title="浏览器的多进程 与 JS的事件循环机制"></a>浏览器的多进程 与 JS的事件循环机制</h2><h3 id="为什么浏览器是多进程的？"><a href="#为什么浏览器是多进程的？" class="headerlink" title="为什么浏览器是多进程的？"></a>为什么浏览器是多进程的？</h3><p>在回答这个问题之前，首先要知道什么是进程，什么是线程。</p>
+<ul>
+<li><strong>进程</strong>：是指一个<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%86%85%E5%AD%98&spm=1001.2101.3001.7020">内存</a>中运行的应用程序，每个进程都有一个独立的内存空间，一个应用程序可以同时运行多个进程；进程也是程序的一次执行过程，是系统运行程序的基本单位；系统运行一个程序即是一个进程从创建、运行到消亡的过程。</li>
+<li><strong>线程</strong>：线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程。一个进程中是可以有多个线程的，这个应用程序也可以称之为<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%A4%9A%E7%BA%BF%E7%A8%8B&spm=1001.2101.3001.7020">多线程</a>程序。</li>
+</ul>
+<p>简而言之：一个程序运行后至少有一个进程，一个进程中可以包含多个线程</p>
+<h5 id="单进程架构的浏览器"><a href="#单进程架构的浏览器" class="headerlink" title="单进程架构的浏览器"></a>单进程架构的浏览器</h5><p>所有的功能模块都是运行在同一个进程里的，可能会导致浏览器不稳定、不流畅和不安全。</p>
+<ul>
+<li>不稳定 单进程浏览器的功能模块运行在同一进程中，采用多线程的方式运行，如果有一个线程崩溃或者出现问题，就可能会导致整个进程崩溃。例如javascript环境是运行在页面线程中的 ，可能会因为代码的意外崩溃导致整个浏览器崩溃。</li>
+<li>不流畅 页面渲染、页面展现、JavaScript环境、插件等都是运行在同一个页面线程中，意味着同一时刻只能有一个任务可以执行。例如编写一个无线循环的脚本运行在单进程浏览器页面中，会独占页面线程，导致其他任务无法执行，会导致整个浏览器失去响应、卡顿。另外页面的内存泄露也是造成卡顿的一个原因。</li>
+<li>不安全 插件或者脚本通过浏览器获取系统权限，引发安全问题。</li>
+</ul>
+<h5 id="多进程架构的浏览器"><a href="#多进程架构的浏览器" class="headerlink" title="多进程架构的浏览器"></a>多进程架构的浏览器</h5><p>采用多进程可以使浏览器具备更好的容错性，提供安全性和沙盒性。因为操作系统可以提供方法限制每个进程拥有的能力，所以浏览器可以让某些进程只能具备特定的功能，例如Chrome的Tab限制了对系统文件的读写能力， 但是多进程的浏览器有一个缺点，就是进程的内存占用相对更多，但是Chrome为了节省内存，会限制被启动的进程数，当进程数到达界限后，会将访问同一个网站的tab都放在一个进程里运行。</p>
+<p>总的来说，多进程架构的浏览器，不会因为某个线程出现问题，而导致整个浏览器不能使用。</p>
+<h3 id="chrome浏览器的有哪些进程"><a href="#chrome浏览器的有哪些进程" class="headerlink" title="chrome浏览器的有哪些进程"></a>chrome浏览器的有哪些进程</h3><ul>
+<li><p><strong>浏览器进程</strong>。主要负责界面显示、用户交互、子进程管理，同时提供存储等功能。</p>
+</li>
+<li><p><strong>渲染进程</strong>。核心任务是将 HTML、CSS 和 JavaScript 转换为用户可以与之交互的网页，排版引擎Blink和JavaScript引擎V8都是运行在该进程中，默认情况下，Chrome会为每个Tab标签创建一个渲染进程。出于安全考虑，渲染进程都是运行在沙箱模式下。</p>
+</li>
+<li><p><strong>GPU进程</strong>。其实，Chrome刚开始发布的时候是没有GPU进程的。而GPU的使用初衷是为了实现3D CSS的效果，只是随后网页、Chrome的UI界面都选择采用GPU来绘制，这使得GPU成为浏览器普遍的需求。最后，Chrome在其多进程架构上也引入了GPU进程。</p>
+</li>
+<li><p><strong>网络进程</strong>。主要负责页面的网络资源加载，之前是作为一个模块运行在浏览器进程里面的，直至最近才独立出来，成为一个单独的进程。</p>
+</li>
+<li><p><strong>插件进程</strong>。主要是负责插件的运行，因插件易崩溃，所以需要通过插件进程来隔离，以保证插件进程崩溃不会对浏览器和页面造成影响</p>
+</li>
+</ul>
+<h4 id="什么是事件循环？"><a href="#什么是事件循环？" class="headerlink" title="什么是事件循环？"></a>什么是事件循环？</h4><p>Event Loop 是一个很重要的概念，指的是计算机系统的一种运行机制。</p>
+<p><strong>Event Loop是一个程序结构，用于等待和发送消息或事件。</strong></p>
+<h4 id="为什么需要事件循环机制？"><a href="#为什么需要事件循环机制？" class="headerlink" title="为什么需要事件循环机制？"></a>为什么需要事件循环机制？</h4><p>JS在设计之初就是单线程，这就意味着任务都是需要一个一个执行，要想异步执行，那么就需要引入了事件循环机制.</p>
+<h4 id="什么是宏任务？什么是微任务？"><a href="#什么是宏任务？什么是微任务？" class="headerlink" title="什么是宏任务？什么是微任务？"></a>什么是宏任务？什么是微任务？</h4><p>宿主环境（js运行的环境，一般为浏览器或node）发起的叫宏任务 ，JavaScript自身发起是微任务。</p>
+<h4 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h4><p>在宏任务结束后，会执行当前宏任务产生的所有微任务（消息队列）；</p>
+<p>当微任务执行结束后，检查是否有延时任务，若有延时任务且延时任务的时间已经到了，那么就执行延时任务，否则就跳过，等待下一次循环；</p>
+<p>开始新的宏任务，进行第二次循环；</p>
+<p><img src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/IMG_2140188C7983-1.jpeg" alt="IMG_2140188C7983-1"></p>
+<p>参考文档：</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6950457491243139086">Chrome浏览器为什么是多进程而不是多线程</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012925872">从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.poetries.top/browser-working-principle/guide/part1/lesson01.html#%E6%9C%AA%E6%9D%A5%E9%9D%A2%E5%90%91%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%9E%B6%E6%9E%84">浏览器工作原理与实践</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JS/" rel="tag"># JS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/29/6-Z%E5%AD%97%E5%8F%98%E6%8D%A2/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/10/31/%E7%BB%93%E5%90%88JSX%E5%AE%9E%E7%8E%B0%E7%B1%BB%E8%A1%A8%E6%A0%BC%E7%BB%84%E4%BB%B6-%E8%BF%9B%E9%98%B6%EF%BC%88vue2%EF%BC%89/" rel="next" title="结合JSX实现自定义内容的类表格组件-进阶">
+      结合JSX实现自定义内容的类表格组件-进阶 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B-%E4%B8%8E-JS%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">浏览器的多进程 与 JS的事件循环机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%9A%84%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">为什么浏览器是多进程的？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%95%E8%BF%9B%E7%A8%8B%E6%9E%B6%E6%9E%84%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">单进程架构的浏览器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%9E%B6%E6%9E%84%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">多进程架构的浏览器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%9C%89%E5%93%AA%E4%BA%9B%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">chrome浏览器的有哪些进程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%EF%BC%9F"><span class="nav-number">1.2.1.</span> <span class="nav-text">什么是事件循环？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6%EF%BC%9F"><span class="nav-number">1.2.2.</span> <span class="nav-text">为什么需要事件循环机制？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%8F%E4%BB%BB%E5%8A%A1%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E4%BB%BB%E5%8A%A1%EF%BC%9F"><span class="nav-number">1.2.3.</span> <span class="nav-text">什么是宏任务？什么是微任务？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">1.2.4.</span> <span class="nav-text">执行过程</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="chen"
+      src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
+  <p class="site-author-name" itemprop="name">chen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/helloCx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;helloCx" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1004711601@qq.com" title="E-Mail → mailto:1004711601@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

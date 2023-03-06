@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="词法环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="词法环境">
+<meta property="og:url" content="http://example.com/2023/03/06/%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="dchen">
+<meta property="og:description" content="词法环境">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-06T08:34:08.638Z">
+<meta property="article:modified_time" content="2023-03-06T11:37:11.451Z">
+<meta property="article:author" content="chen">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/03/06/%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>词法环境 | dchen</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">dchen</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/06/%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
+      <meta itemprop="name" content="chen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dchen">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          词法环境
+        </h1>
+
+        <div class="post-meta">
+
+	 
+   
+     <span class="post-author" >
+       <span class="post-meta-item-text">作者&#58;</span>
+       dchen
+     </span>
+     <span class="post-meta-divider">|</span>
+   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-06 16:34:08 / 修改时间：19:37:11" itemprop="dateCreated datePublished" datetime="2023-03-06T16:34:08+08:00">2023-03-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">词法环境</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="词法环境"><a href="#词法环境" class="headerlink" title="词法环境"></a>词法环境</h2><p>词法环境（Lexical Environments）是一种规范类型，用于根据ECMAScript代码的词法嵌套结构来定义标识符与特定变量和函数的关联。词法环境由一个环境记录（Environment Record）和一个可能为空的外部词法环境（outer Lexical Environment）引用组成。通常，词法环境与ECMAScript代码的特定语法结构相关联，例如FunctionDeclaration，BlockStatement或TryStatement的Catch子句，并且每次执行这样的代码时都会创建新的词法环境。</p>
+<p>环境记录记录了在其关联的词法环境作用域内创建的标识符绑定。它被称为词法环境的环境记录。环境记录也是一种规范类型。规范类型对应于在算法中用来描述ECMAScript语言结构和ECMAScript语言类型的语义的元值。</p>
+<ul>
+<li>全局环境是一个没有外部环境的词法环境。全局环境的外部环境引用为null。</li>
+<li>模块环境是一个包含模块顶层声明绑定的词法环境。模块环境的外部环境是一个全局环境。</li>
+<li>函数环境是一个对应于ECMAScript函数对象调用的词法环境。</li>
+</ul>
+<p>词法环境的组成</p>
+<ol>
+<li><p>环境记录</p>
+<p>主要有三种：对象环境记录、声明性环境记录、全局环境记录</p>
+</li>
+<li><p>模块环境记录（外部环境记录）</p>
+</li>
+</ol>
+<blockquote>
+<p>PS：在不同的ES版本中有着不同的说法ES5以前叫作用域，现在是ES8的词法环境。</p>
+</blockquote>
+<h3 id="环境记录"><a href="#环境记录" class="headerlink" title="环境记录"></a>环境记录</h3><p>ES8规范中主要使用两种环境记录值：声明性环境记录和对象环境记录。环境记录是一个抽象类，它具有三个具体的子类，分别是声明式环境记录，对象环境记录和全局环境记录。其中全局环境记录在逻辑上是单个记录，但是它被指定为封装对象环境记录和声明性环境记录的组合。</p>
+<h4 id="对象环境记录（Object-Environment-Record）"><a href="#对象环境记录（Object-Environment-Record）" class="headerlink" title="对象环境记录（Object Environment Record）"></a>对象环境记录（Object Environment Record）</h4><p>将一个对象作为环境记录</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> withObject=&#123;</span><br><span class="line">    <span class="attr">a</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="attr">foo</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">with</span>(<span class="params">withObject</span>)</span>&#123;</span><br><span class="line">    a=a+<span class="number">1</span>;</span><br><span class="line">    foo();                    <span class="comment">//2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="声明性环境记录（Declarative-Environment-Record）"><a href="#声明性环境记录（Declarative-Environment-Record）" class="headerlink" title="声明性环境记录（Declarative Environment Record）"></a>声明性环境记录（Declarative Environment Record）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> x <span class="keyword">from</span> <span class="string">&#x27;***&#x27;</span>;</span><br><span class="line"><span class="comment">// 也称变量环境（VariableEnvironment）</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> c=<span class="number">1</span>;</span><br><span class="line"><span class="comment">// 也称函数环境记录（Function Environment Record）</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bar</span></span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在声明性环境记录中，比较特殊的就是函数环境记录、模块环境记录</p>
+<h5 id="函数环境记录（Function-Environment-Record）"><a href="#函数环境记录（Function-Environment-Record）" class="headerlink" title="函数环境记录（Function Environment Record）"></a>函数环境记录（Function Environment Record）</h5><p>函数环境记录是一个声明性环境记录，它用来表示function中的顶级作用域。此外如果函数不是一个箭头函数（ArrowFunction），则为这个函数提供一个this绑定。如果一个函数不是一个ArrowFunction函数并引用了super，则它的函数环境记录还包含从该函数内执行super方法调用的状态。</p>
+<table>
+<thead>
+<tr>
+<th>字段名称</th>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[[ThisValue]]</td>
+<td>Any</td>
+<td>用于该函数调用的this值</td>
+</tr>
+<tr>
+<td>[[ThisBindingStatus]]</td>
+<td>“lexical” ，”initialized” ，”uninitialized”</td>
+<td>如果值是“lexical”，这是一个ArrowFunction，并且没有一个本地的this值。</td>
+</tr>
+<tr>
+<td>[[FunctionObject]]</td>
+<td>Object</td>
+<td>一个函数对象，它的调用导致创建该环境记录</td>
+</tr>
+<tr>
+<td>[[HomeObject]]</td>
+<td>Object或者undefined</td>
+<td>如果关联的函数具有super属性访问权限，并且不是一个ArrowFunction，则[[HomeObject]]是该函数作为方法绑定的对象。 [[HomeObject]]的默认值是undefined。</td>
+</tr>
+<tr>
+<td>[[NewTarget]]</td>
+<td>Object或者undefined</td>
+<td>如果该环境记录是由[[Construct]]的内部方法创建的，则[[NewTarget]]就是[[Construct]]的newTarget参数的值。否则，它的值是undefined。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>PS：变量环境存放Var声明的值，词法环境可以绑定let、const等值</p>
+</blockquote>
+<h5 id="模块环境记录（Module-Environment-Records）"><a href="#模块环境记录（Module-Environment-Records）" class="headerlink" title="模块环境记录（Module Environment Records）"></a>模块环境记录（Module Environment Records）</h5><p>模块环境记录是一个声明性环境记录，用于表示ECMAScript模块的外部作用域。除了正常的可变和不可变绑定之外，模块环境记录还提供了不可变的导入绑定，这些绑定提供间接访问另一个环境记录中存在的目标绑定。</p>
+<h4 id="全局环境记录（Global-Environment-Records）"><a href="#全局环境记录（Global-Environment-Records）" class="headerlink" title="全局环境记录（Global Environment Records）"></a>全局环境记录（Global Environment Records）</h4><p>全局环境记录用于表示在共同领域（Realms）中处理所有共享最外层作用域的ECMAScript Script元素。全局环境记录提供了内置全局绑定，全局对象的属性以及所有在脚本中发生的顶级声明。</p>
+<p>全局环境记录有下表额外的字段。</p>
+<table>
+<thead>
+<tr>
+<th>字段名称</th>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[[ObjectRecord]]</td>
+<td>Object Environment Record</td>
+<td>绑定对象是一个全局对象。它包含全局内置绑定以及关联领域的全局代码中FunctionDeclaration，GeneratorDeclaration，AsyncFunctionDeclaration和VariableDeclaration绑定。</td>
+</tr>
+<tr>
+<td>[[GlobalThisValue]]</td>
+<td>Object</td>
+<td>在全局作用域内返回的this值。宿主可以提供任何ECMAScript对象值。</td>
+</tr>
+<tr>
+<td>[[DeclarativeRecord]]</td>
+<td>Declarative Environment Record</td>
+<td>包含在关联领域的全局代码中除了FunctionDeclaration，GeneratorDeclaration，AsyncFunctionDeclaration和VariableDeclaration绑定之外的所有声明的绑定</td>
+</tr>
+<tr>
+<td>[[VarNames]]</td>
+<td>List of String</td>
+<td>关联领域的全局代码中的FunctionDeclaration，GeneratorDeclaration，AsyncFunctionDeclaration和VariableDeclaration声明绑定的字符串名称。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>PS：JS使用的是静态作用域，所以作用域跟什么时候声明有关。</p>
+</blockquote>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>[<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012162360">javascript中词法环境、领域、执行上下文以及作业详解</a>]</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JS/" rel="tag"># JS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/05/%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="prev" title="作用域、闭包">
+      <i class="fa fa-chevron-left"></i> 作用域、闭包
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">词法环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E8%AE%B0%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">环境记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%8E%AF%E5%A2%83%E8%AE%B0%E5%BD%95%EF%BC%88Object-Environment-Record%EF%BC%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">对象环境记录（Object Environment Record）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E6%80%A7%E7%8E%AF%E5%A2%83%E8%AE%B0%E5%BD%95%EF%BC%88Declarative-Environment-Record%EF%BC%89"><span class="nav-number">1.1.2.</span> <span class="nav-text">声明性环境记录（Declarative Environment Record）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%8E%AF%E5%A2%83%E8%AE%B0%E5%BD%95%EF%BC%88Function-Environment-Record%EF%BC%89"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">函数环境记录（Function Environment Record）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E7%8E%AF%E5%A2%83%E8%AE%B0%E5%BD%95%EF%BC%88Module-Environment-Records%EF%BC%89"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">模块环境记录（Module Environment Records）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E7%8E%AF%E5%A2%83%E8%AE%B0%E5%BD%95%EF%BC%88Global-Environment-Records%EF%BC%89"><span class="nav-number">1.1.3.</span> <span class="nav-text">全局环境记录（Global Environment Records）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.2.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="chen"
+      src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
+  <p class="site-author-name" itemprop="name">chen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/helloCx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;helloCx" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1004711601@qq.com" title="E-Mail → mailto:1004711601@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

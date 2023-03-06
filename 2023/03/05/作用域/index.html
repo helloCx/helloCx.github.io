@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="作用域、闭包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="作用域、闭包">
+<meta property="og:url" content="http://example.com/2023/03/05/%E4%BD%9C%E7%94%A8%E5%9F%9F/index.html">
+<meta property="og:site_name" content="dchen">
+<meta property="og:description" content="作用域、闭包">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306151904499.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306151931951.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306152354412.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306152655355.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306152724194.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306153515067.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306153621349.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306153640404.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306153659284.png">
+<meta property="article:published_time" content="2023-03-05T11:52:47.185Z">
+<meta property="article:modified_time" content="2023-03-06T08:49:46.372Z">
+<meta property="article:author" content="chen">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306151904499.png">
+
+<link rel="canonical" href="http://example.com/2023/03/05/%E4%BD%9C%E7%94%A8%E5%9F%9F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>作用域、闭包 | dchen</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">dchen</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/05/%E4%BD%9C%E7%94%A8%E5%9F%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
+      <meta itemprop="name" content="chen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dchen">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          作用域、闭包
+        </h1>
+
+        <div class="post-meta">
+
+	 
+   
+     <span class="post-author" >
+       <span class="post-meta-item-text">作者&#58;</span>
+       dchen
+     </span>
+     <span class="post-meta-divider">|</span>
+   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-05 19:52:47" itemprop="dateCreated datePublished" datetime="2023-03-05T19:52:47+08:00">2023-03-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-06 16:49:46" itemprop="dateModified" datetime="2023-03-06T16:49:46+08:00">2023-03-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">作用域、闭包</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="作用域、闭包"><a href="#作用域、闭包" class="headerlink" title="作用域、闭包"></a>作用域、闭包</h2><h3 id="词法环境"><a href="#词法环境" class="headerlink" title="词法环境"></a>词法环境</h3><h4 id="Step-1-变量"><a href="#Step-1-变量" class="headerlink" title="Step 1. 变量"></a>Step 1. 变量</h4><p>在 JavaScript 中，每个运行的函数，代码块 <code>&#123;...&#125;</code> 以及整个脚本，都有一个被称为 <strong>词法环境（Lexical Environment）</strong> 的内部（隐藏）的关联对象。</p>
+<p>词法环境对象由两部分组成：</p>
+<ol>
+<li><p>环境记录（Environment Record） 一个存储所有局部变量作为其属性（包括一些其他信息，例如 <code>this</code> 的值）的对象。</p>
+</li>
+<li><p>对「外部词法环境」 的引用，与外部代码相关联。</p>
+</li>
+</ol>
+<p>一个“JS变量”只是 <strong>环境记录</strong> 这个特殊的内部对象的一个属性。“获取或修改变量”意味着“获取或修改词法环境的一个属性”。</p>
+<p>举个例子，这段没有函数的简单的代码中只有一个词法环境</p>
+<p><img src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306151904499.png" alt="image-20230306151904499"></p>
+<p>这就是所谓的与整个脚本相关联的 <strong>全局</strong> 词法环境。</p>
+<p>在上面的图片中，矩形表示环境记录（变量存储），箭头表示外部引用。全局词法环境没有外部引用，所以箭头指向了 <code>null</code>。</p>
+<p>随着代码开始并继续运行，词法环境发生了变化。</p>
+<p>这是更长的代码：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306151931951.png" alt="image-20230306151931951"></p>
+<p>右侧的矩形演示了执行过程中全局词法环境的变化：</p>
+<ol>
+<li>当脚本开始运行，词法环境预先填充了所有声明的变量。<ul>
+<li>最初，它们处于“未初始化（Uninitialized）”状态。这是一种特殊的内部状态，这意味着引擎知道变量，但是在用 <code>let</code> 声明前，不能引用它。几乎就像变量不存在一样。</li>
+</ul>
+</li>
+<li>然后 <code>let phrase</code> 定义出现了。它尚未被赋值，因此它的值为 <code>undefined</code>。从这一刻起，我们就可以使用变量了。</li>
+<li><code>phrase</code> 被赋予了一个值。</li>
+<li><code>phrase</code> 的值被修改。</li>
+</ol>
+<p>现在看起来都挺简单的，是吧？</p>
+<ul>
+<li>变量是特殊内部对象的属性，与当前正在执行的（代码）块/函数/脚本有关。</li>
+<li>操作变量实际上是操作该对象的属性。</li>
+</ul>
+<p><strong>词法环境是一个规范对象</strong></p>
+<p>“词法环境”是一个规范对象（specification object）：它只存在于 <a target="_blank" rel="noopener" href="https://tc39.es/ecma262/#sec-lexical-environments">语言规范</a> 的“理论”层面，用于描述事物是如何工作的。我们无法在代码中获取该对象并直接对其进行操作。</p>
+<p>但 JavaScript 引擎同样可以优化它，比如清除未被使用的变量以节省内存和执行其他内部技巧等，但显性行为应该是和上述的无差。</p>
+<h4 id="Step-2-函数声明"><a href="#Step-2-函数声明" class="headerlink" title="Step 2. 函数声明"></a>Step 2. 函数声明</h4><p>一个函数其实也是一个值，就像变量一样。</p>
+<p><strong>不同之处在于函数声明的初始化会被立即完成。</strong></p>
+<p>当创建了一个词法环境（Lexical Environment）时，函数声明会立即变为即用型函数（不像 <code>let</code> 那样直到声明处才可用）。</p>
+<p>这就是为什么我们甚至可以在声明自身之前调用一个以函数声明（Function Declaration）的方式声明的函数。</p>
+<p>例如，这是添加一个函数时全局词法环境的初始状态：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306152354412.png" alt="image-20230306152354412"></p>
+<p>正常来说，这种行为仅适用于函数声明，而不适用于我们将函数分配给变量的函数表达式，例如 <code>let say = function(name)...</code>。</p>
+<h4 id="Step-3-内部和外部的词法环境"><a href="#Step-3-内部和外部的词法环境" class="headerlink" title="Step 3. 内部和外部的词法环境"></a>Step 3. 内部和外部的词法环境</h4><p>在一个函数运行时，在调用刚开始时，会自动创建一个新的词法环境以存储这个调用的局部变量和参数。</p>
+<p>例如，对于 <code>say(&quot;John&quot;)</code>，它看起来像这样（当前执行位置在箭头标记的那一行上）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306152655355.png" alt="image-20230306152655355"></p>
+<p>在这个函数调用期间，我们有两个词法环境：内部一个（用于函数调用）和外部一个（全局）：</p>
+<ul>
+<li>内部词法环境与 <code>say</code> 的当前执行相对应。它具有一个单独的属性：<code>name</code>，函数的参数。我们调用的是 <code>say(&quot;John&quot;)</code>，所以 <code>name</code> 的值为 <code>&quot;John&quot;</code>。</li>
+<li>外部词法环境是全局词法环境。它具有 <code>phrase</code> 变量和函数本身。</li>
+</ul>
+<p>内部词法环境引用了 <code>outer</code>。</p>
+<p><strong>当代码要访问一个变量时 —— 首先会搜索内部词法环境，然后搜索外部环境，然后搜索更外部的环境，以此类推，直到全局词法环境。</strong></p>
+<p>如果在任何地方都找不到这个变量，那么在严格模式下就会报错（在非严格模式下，为了向下兼容，给未定义的变量赋值会创建一个全局变量）。</p>
+<p>在这个示例中，搜索过程如下：</p>
+<ul>
+<li>对于 <code>name</code> 变量，当 <code>say</code> 中的 <code>alert</code> 试图访问 <code>name</code> 时，会立即在内部词法环境中找到它。</li>
+<li>当它试图访问 <code>phrase</code> 时，然而内部没有 <code>phrase</code>，所以它顺着对外部词法环境的引用找到了它。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306152724194.png" alt="image-20230306152724194"></p>
+<h4 id="Step-4-返回函数"><a href="#Step-4-返回函数" class="headerlink" title="Step 4. 返回函数"></a>Step 4. 返回函数</h4><p>让我们回到 <code>makeCounter</code> 这个例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeCounter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> count++;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> counter = makeCounter();</span><br></pre></td></tr></table></figure>
+
+<p>在每次 <code>makeCounter()</code> 调用的开始，都会创建一个新的词法环境对象，以存储该 <code>makeCounter</code> 运行时的变量。</p>
+<p>因此，我们有两层嵌套的词法环境，就像上面的示例一样：<img src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306153515067.png" alt="image-20230306153515067"></p>
+<p>不同的是，在执行 <code>makeCounter()</code> 的过程中创建了一个仅占一行的嵌套函数：<code>return count++</code>。我们尚未运行它，仅创建了它。</p>
+<p>所有的函数在“诞生”时都会记住创建它们的词法环境。从技术上讲，这里没有什么魔法：所有函数都有名为 <code>[[Environment]]</code> 的隐藏属性，该属性保存了对创建该函数的词法环境的引用。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306153621349.png" alt="image-20230306153621349"></p>
+<p>因此，<code>counter.[[Environment]]</code> 有对 <code>&#123;count: 0&#125;</code> 词法环境的引用。这就是函数记住它创建于何处的方式，与函数被在哪儿调用无关。<code>[[Environment]]</code> 引用在函数创建时被设置并永久保存。</p>
+<p>稍后，当调用 <code>counter()</code> 时，会为该调用创建一个新的词法环境，并且其外部词法环境引用获取于 <code>counter.[[Environment]]</code>：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306153640404.png" alt="image-20230306153640404"></p>
+<p>现在，当 <code>counter()</code> 中的代码查找 <code>count</code> 变量时，它首先搜索自己的词法环境（为空，因为那里没有局部变量），然后是外部 <code>makeCounter()</code> 的词法环境，并且在哪里找到就在哪里修改。</p>
+<p><strong>在变量所在的词法环境中更新变量。</strong></p>
+<p>这是执行后的状态：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/image-20230306153659284.png" alt="image-20230306153659284"></p>
+<p>如果我们调用 <code>counter()</code> 多次，<code>count</code> 变量将在同一位置增加到 <code>2</code>，<code>3</code> 等。</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包其实就是封闭的词法作用域，由于只有那个函数能访问的词法环境。</p>
+<h2 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h2><p>通常，函数调用完成后，会将词法环境和其中的所有变量从内存中删除。因为现在没有任何对它们的引用了。与 JavaScript 中的任何其他对象一样，词法环境仅在可达时才会被保留在内存中。</p>
+<p>但是，如果有一个嵌套的函数在函数结束后仍可达，则它将具有引用词法环境的 <code>[[Environment]]</code> 属性。</p>
+<p>在下面这个例子中，即使在（外部）函数执行完成后，它的词法环境仍然可达。因此，此词法环境仍然有效。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> value = <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> g = f(); <span class="comment">// g.[[Environment]] 存储了对相应 f() 调用的词法环境的引用</span></span><br></pre></td></tr></table></figure>
+
+<p>请注意，如果多次调用 <code>f()</code>，并且返回的函数被保存，那么所有相应的词法环境对象也会保留在内存中。下面代码中有三个这样的函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> value = <span class="built_in">Math</span>.random();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; alert(value); &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组中的 3 个函数，每个都与来自对应的 f() 的词法环境相关联</span></span><br><span class="line"><span class="keyword">let</span> arr = [f(), f(), f()];</span><br></pre></td></tr></table></figure>
+
+<p>当词法环境对象变得不可达时，它就会死去（就像其他任何对象一样）。换句话说，它仅在至少有一个嵌套函数引用它时才存在。</p>
+<p>在下面的代码中，嵌套函数被删除后，其封闭的词法环境（以及其中的 <code>value</code>）也会被从内存中删除：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> value = <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> g = f(); <span class="comment">// 当 g 函数存在时，该值会被保留在内存中</span></span><br><span class="line"></span><br><span class="line">g = <span class="literal">null</span>; <span class="comment">// ……现在内存被清理了</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="实际开发中的优化"><a href="#实际开发中的优化" class="headerlink" title="实际开发中的优化"></a>实际开发中的优化</h3><p>正如我们所看到的，理论上当函数可达时，它外部的所有变量也都将存在。</p>
+<p>但在实际中，JavaScript 引擎会试图优化它。它们会分析变量的使用情况，如果从代码中可以明显看出有未使用的外部变量，那么就会将其删除。</p>
+<p><strong>在 V8（Chrome，Edge，Opera）中的一个重要的副作用是，此类变量在调试中将不可用。</strong></p>
+<p>打开 Chrome 浏览器的开发者工具，并尝试运行下面的代码。</p>
+<p>当代码执行暂停时，在控制台中输入 <code>alert(value)</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> value = <span class="built_in">Math</span>.random();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">debugger</span>; <span class="comment">// 在 Console 中：输入 alert(value); No such variable!</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> g;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> g = f();</span><br><span class="line">g();</span><br></pre></td></tr></table></figure>
+
+<p>正如你所见的 —— No such variable! 理论上，它应该是可以访问的，但引擎把它优化掉了。</p>
+<p>这可能会导致有趣的（如果不是那么耗时的）调试问题。其中之一 —— 我们可以看到的是一个同名的外部变量，而不是预期的变量：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> value = <span class="string">&quot;Surprise!&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> value = <span class="string">&quot;the closest value&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">debugger</span>; <span class="comment">// 在 console 中：输入 alert(value); Surprise!</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> g;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> g = f();</span><br><span class="line">g();</span><br></pre></td></tr></table></figure>
+
+<p>V8 引擎的这个特性你真的应该知道。如果你要使用 Chrome/Edge/Opera 进行代码调试，迟早会遇到这样的问题。</p>
+<p>这不是调试器的 bug，而是 V8 的一个特别的特性。也许以后会被修改。你始终可以通过运行本文中的示例来进行检查。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://zh.javascript.info/closure">变量作用域，闭包</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JS/" rel="tag"># JS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/05/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" rel="prev" title="内存管理">
+      <i class="fa fa-chevron-left"></i> 内存管理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/03/06/%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83/" rel="next" title="词法环境">
+      词法环境 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81%E9%97%AD%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">作用域、闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.</span> <span class="nav-text">词法环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-1-%E5%8F%98%E9%87%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">Step 1. 变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-2-%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E"><span class="nav-number">1.1.2.</span> <span class="nav-text">Step 2. 函数声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-3-%E5%86%85%E9%83%A8%E5%92%8C%E5%A4%96%E9%83%A8%E7%9A%84%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.3.</span> <span class="nav-text">Step 3. 内部和外部的词法环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-4-%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.4.</span> <span class="nav-text">Step 4. 返回函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AD%E5%8C%85"><span class="nav-number">1.2.</span> <span class="nav-text">闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">垃圾收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">2.1.</span> <span class="nav-text">实际开发中的优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="chen"
+      src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
+  <p class="site-author-name" itemprop="name">chen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/helloCx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;helloCx" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1004711601@qq.com" title="E-Mail → mailto:1004711601@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
