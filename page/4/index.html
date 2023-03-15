@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang=zh>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Hexo</title>
   <meta property="og:type" content="website">
 <meta property="og:title" content="dchen">
 <meta property="og:url" content="http://example.com/page/4/index.html">
@@ -27,1229 +25,750 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="chen">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://example.com/page/4/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>dchen</title>
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/page/4/index.html">
   
+    <link rel="alternate" href="/atom.xml" title="dchen" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">dchen</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
       
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/08/offer10-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
-      <meta itemprop="name" content="chen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/08/offer10-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/" class="post-title-link" itemprop="url">Leetcode-剑指 Offer 10- I. 斐波那契数列</a>
-        </h2>
-
-        <div class="post-meta">
-
-	 
-   
-     <span class="post-author" >
-       <span class="post-meta-item-text">作者&#58;</span>
-       dchen
-     </span>
-     <span class="post-meta-divider">|</span>
-   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-08 21:25:22" itemprop="dateCreated datePublished" datetime="2021-12-08T21:25:22+08:00">2021-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-24 10:12:10" itemprop="dateModified" datetime="2022-02-24T10:12:10+08:00">2022-02-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <p>LeetCode 剑指 Offer 10- I. 斐波那契数列</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/08/offer10-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/07/02.08%E7%8E%AF%E8%B7%AF%E6%A3%80%E6%B5%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
-      <meta itemprop="name" content="chen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/07/02.08%E7%8E%AF%E8%B7%AF%E6%A3%80%E6%B5%8B/" class="post-title-link" itemprop="url">Leetcode-面试题02.08-环路检测</a>
-        </h2>
-
-        <div class="post-meta">
-
-	 
-   
-     <span class="post-author" >
-       <span class="post-meta-item-text">作者&#58;</span>
-       dchen
-     </span>
-     <span class="post-meta-divider">|</span>
-   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-07 23:27:15" itemprop="dateCreated datePublished" datetime="2021-12-07T23:27:15+08:00">2021-12-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-08 00:13:24" itemprop="dateModified" datetime="2021-12-08T00:13:24+08:00">2021-12-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>力扣面试题02.08-环路检测</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/07/02.08%E7%8E%AF%E8%B7%AF%E6%A3%80%E6%B5%8B/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/07/543-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
-      <meta itemprop="name" content="chen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/07/543-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" class="post-title-link" itemprop="url">leetcode-543 二叉树的直径</a>
-        </h2>
-
-        <div class="post-meta">
-
-	 
-   
-     <span class="post-author" >
-       <span class="post-meta-item-text">作者&#58;</span>
-       dchen
-     </span>
-     <span class="post-meta-divider">|</span>
-   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-07 23:25:20" itemprop="dateCreated datePublished" datetime="2021-12-07T23:25:20+08:00">2021-12-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>leetcode-543 二叉树的直径</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/07/543-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/07/622-%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
-      <meta itemprop="name" content="chen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/07/622-%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">Leetcode-622.设计循环队列</a>
-        </h2>
-
-        <div class="post-meta">
-
-	 
-   
-     <span class="post-author" >
-       <span class="post-meta-item-text">作者&#58;</span>
-       dchen
-     </span>
-     <span class="post-meta-divider">|</span>
-   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-07 23:25:17" itemprop="dateCreated datePublished" datetime="2021-12-07T23:25:17+08:00">2021-12-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Leetcode-622.设计循环队列</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/07/622-%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/07/1670-%E8%AE%BE%E8%AE%A1%E5%89%8D%E4%B8%AD%E5%90%8E%E9%98%9F%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
-      <meta itemprop="name" content="chen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/07/1670-%E8%AE%BE%E8%AE%A1%E5%89%8D%E4%B8%AD%E5%90%8E%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">Leetcode-1670-设计前中后队列</a>
-        </h2>
-
-        <div class="post-meta">
-
-	 
-   
-     <span class="post-author" >
-       <span class="post-meta-item-text">作者&#58;</span>
-       dchen
-     </span>
-     <span class="post-meta-divider">|</span>
-   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-07 23:25:15" itemprop="dateCreated datePublished" datetime="2021-12-07T23:25:15+08:00">2021-12-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Leetcode-1670-设计前中后队列</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/07/1670-%E8%AE%BE%E8%AE%A1%E5%89%8D%E4%B8%AD%E5%90%8E%E9%98%9F%E5%88%97/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/04/03.04-%E5%8C%96%E6%A0%88%E4%B8%BA%E9%98%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
-      <meta itemprop="name" content="chen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/04/03.04-%E5%8C%96%E6%A0%88%E4%B8%BA%E9%98%9F/" class="post-title-link" itemprop="url">leetcode-面试题03.04-化栈为队</a>
-        </h2>
-
-        <div class="post-meta">
-
-	 
-   
-     <span class="post-author" >
-       <span class="post-meta-item-text">作者&#58;</span>
-       dchen
-     </span>
-     <span class="post-meta-divider">|</span>
-   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-04 21:11:02" itemprop="dateCreated datePublished" datetime="2021-12-04T21:11:02+08:00">2021-12-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-06 23:06:13" itemprop="dateModified" datetime="2021-12-06T23:06:13+08:00">2021-12-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>力扣面试题03.04-化栈为队</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/04/03.04-%E5%8C%96%E6%A0%88%E4%B8%BA%E9%98%9F/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/01/543/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
-      <meta itemprop="name" content="chen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/01/543/" class="post-title-link" itemprop="url">leetcode-543 二叉树的直径</a>
-        </h2>
-
-        <div class="post-meta">
-
-	 
-   
-     <span class="post-author" >
-       <span class="post-meta-item-text">作者&#58;</span>
-       dchen
-     </span>
-     <span class="post-meta-divider">|</span>
-   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-12-01 22:34:09 / 修改时间：23:23:24" itemprop="dateCreated datePublished" datetime="2021-12-01T22:34:09+08:00">2021-12-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>leetcode-543 二叉树的直径</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/01/543/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/20/uniapp%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
-      <meta itemprop="name" content="chen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/20/uniapp%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-
-	 
-   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-20 00:05:45" itemprop="dateCreated datePublished" datetime="2021-11-20T00:05:45+08:00">2021-11-20</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <table>
-<thead>
-<tr>
-<th>版本</th>
-<th>时间</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>v1</td>
-<td>2021年11月19日23:09:13</td>
-</tr>
-</tbody></table>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>目前前端小程序都是有uniapp框架进行搭建。所以在本文中都是以uniapp框架为基础。</p>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p><img src="https://cdn.nlark.com/yuque/0/2021/png/2431817/1637310568686-72ce0e9f-d473-4cd9-8336-51b77587a919.png" alt="img"></p>
-<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><p>所有用到的localstorage的方法，统一放在”src/storage”文件夹下，包括从rigs包里引出来的storage，自己创建的需要使用UniStoreWrapper，便于管理。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/storage/index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; refreshToken, topGroupId &#125; <span class="keyword">from</span> <span class="string">&#x27;r-basic/storage/uniStore&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> &#123; UniStoreWrapper &#125; = <span class="built_in">require</span>(<span class="string">&#x27;r-foundation&#x27;</span>).storage;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> customId = <span class="keyword">new</span> UniStoreWrapper(<span class="string">&#x27;customId&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> areaUniStore = <span class="keyword">new</span> UniStoreWrapper(<span class="string">&#x27;area&#x27;</span>);</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  customId,</span><br><span class="line">  areaUniStore,</span><br><span class="line">  refreshToken,</span><br><span class="line">  topGroupId</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><h4 id="发送请求及鉴权"><a href="#发送请求及鉴权" class="headerlink" title="发送请求及鉴权"></a>发送请求及鉴权</h4><p>统一使用r-networking + r-auth-mini</p>
-<blockquote>
-<p>注意点</p>
-<p>r-auth-mini 在后端返回“权限认证失败”后，会通过refresh_token进行二次请求。如果refresh_token请求成功就继续操作，如果refresh_token失败就清空localstorage并跳转登录</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> rNet <span class="keyword">from</span> <span class="string">&#x27;r-networking&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> axiosMiniprogramAdapter <span class="keyword">from</span> <span class="string">&#x27;axios-miniprogram-adapter&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> rAuthMini <span class="keyword">from</span> <span class="string">&#x27;r-auth-mini&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; app_helper &#125; <span class="keyword">from</span> <span class="string">&#x27;r-basic&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; RysClient &#125; = rNet;</span><br><span class="line"><span class="keyword">const</span> mw_req_pre = <span class="built_in">require</span>(<span class="string">&#x27;./networking/middlewares/mw_req_pre&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> mw_res_pre = <span class="built_in">require</span>(<span class="string">&#x27;./networking/middlewares/mw_res_pre&#x27;</span>);</span><br><span class="line"></span><br><span class="line">RysClient.mw_slots_manager.req_pre.concat([mw_req_pre]);</span><br><span class="line"><span class="comment">// 加入鉴权中间件</span></span><br><span class="line">RysClient.mw_slots_manager.req_pre.concat([rAuthMini.req_pre_auth]);</span><br><span class="line">RysClient.mw_slots_manager.res_sub.concat([rAuthMini.res_pre_auth]);</span><br><span class="line"></span><br><span class="line">RysClient.mw_slots_manager.res_sub.concat([mw_res_pre]);</span><br><span class="line"></span><br><span class="line">app_helper.registerAPP(&#123;</span><br><span class="line">  <span class="comment">//注入鉴权失败后跳转的方法</span></span><br><span class="line">  <span class="attr">loginAction</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 跳转到登录页面</span></span><br><span class="line">    uni.navigateTo(&#123; <span class="attr">url</span>: <span class="string">&#x27;/pages/XXXXXX/XXXXXX&#x27;</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 增加小程序axios适配器，“axiosMiniprogramAdapter”为微信小程序专用</span></span><br><span class="line">rNet.setAdapter(axiosMiniprogramAdapter);</span><br></pre></td></tr></table></figure>
-
-<h4 id="登录页面"><a href="#登录页面" class="headerlink" title="登录页面"></a>登录页面</h4><p>登录页面主要逻辑如下（以微信小程序为例）</p>
-<p><img src="https://gitee.com/helloCx/images/raw/master/1637308818368-522ccc31-98d1-4418-a2ab-061aa1a71ebb.png" alt="img"></p>
-<blockquote>
-<p>注意点</p>
-<p>首先调用wx.login()获取到code传给后端，后端获取sessionKey且由redise缓存里，且返回openid。当需要解密手机号时带着 openid + 手机号秘钥 调用后端解密接口</p>
-<p>code 有效时间5分钟，sessionKey有效时间3天</p>
-</blockquote>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h3><h4 id="获取手机号"><a href="#获取手机号" class="headerlink" title="获取手机号"></a>获取手机号</h4><p>使用getphonenumber方法</p>
-<p>参考链接：<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getPhoneNumber.html">https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getPhoneNumber.html</a></p>
-<blockquote>
-<p>注意点</p>
-<p>该方法只能通过按钮的形式触发，且在出发前先请求wx.login();避免在getphonenumber回调成功后调用wx.login()，因为getphonenumber获取到的秘钥是用sessionkey加密的，而wx.login()获取code时会生成新的sessionkey,导致解密失败。</p>
-</blockquote>
-<h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><h4 id="审核"><a href="#审核" class="headerlink" title="审核"></a>审核</h4><ol>
-<li>登录审核</li>
-</ol>
-<p>对于小程序的审核，微信总是有很多的限制，最大的限制在于登录。微信小程序的唯一宗旨：不要强迫用户登录，给用户先看清楚小程序的整体界面，然后再用户主动点击页面时去触发登录。（特定范围的小程序除外）</p>
-<p>参考链接：<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/community/operate/doc/000640bb8441b82900e89f48351401">小程序登录规范</a></p>
-<ol start="2">
-<li>服务范围</li>
-</ol>
-<p>有些功能需要特定的服务范围，比如说小程序长期订阅。</p>
-<p>涉小程序开放的服务类目资质、适用范围可参考文档：<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/product/material/">https://developers.weixin.qq.com/miniprogram/product/material/</a></p>
-<p>小程序订阅消息功能相关要求及介绍可参考以下文档：</p>
-<p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/subscribe-message.html">https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/subscribe-message.html</a></p>
-<p>小程序已有的类目，涉及政务民生、医疗、交通、金融、教育等线下公共服务其中一项，则默认就会有长期订阅消息的入口哦<del>如果没有，则是不符合哦</del></p>
-<h3 id="r-Uview"><a href="#r-Uview" class="headerlink" title="r-Uview"></a>r-Uview</h3><h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><p>r-uview就是uview克隆出来的。使用r-uview需要修改5个文件。分别为main.js、</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// Main.js</span><br><span class="line"></span><br><span class="line">import Vue form &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">import uView from &#x27;uView&#x27;</span><br><span class="line"></span><br><span class="line">Vue.use(uView);</span><br><span class="line">//pages.js</span><br><span class="line">&#123;</span><br><span class="line">  &quot;pages&quot; : [],</span><br><span class="line">  &quot;easycom&quot;: &#123;</span><br><span class="line">        &quot;autoscan&quot;: true,</span><br><span class="line">        &quot;custom&quot;: &#123;</span><br><span class="line">            &quot;^u-(.*)&quot;: &quot;r-uview/components/u-$1/u-$1.vue&quot;</span><br><span class="line">        &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意点</p>
-<p>“r-uview/components/u-$1/u-$1.vue” 路径没有带前缀那么默认就是去node_modules里面找</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// uni.scss</span><br><span class="line"></span><br><span class="line">import &#x27;uview/theme.scss&#x27;</span><br><span class="line">// App.vue</span><br><span class="line"></span><br><span class="line">/*一定要用 scss*/</span><br><span class="line">&lt;style lang=&#x27;scss&#x27;&gt; </span><br><span class="line">import &#x27;uview/index.scss&#x27;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意点</p>
-<p>如果不小心将 App.vue 里的 <style lang='scss'> 写成 <style lang='sass'> </p>
-<p>那么会报错 Invalid CSS after “…ragraph: 30rpx;”: expected 1 selector or at-rule, was “{“</p>
-</blockquote>
-<h3 id="uniapp"><a href="#uniapp" class="headerlink" title="uniapp"></a>uniapp</h3><h4 id="模块热重载"><a href="#模块热重载" class="headerlink" title="模块热重载"></a>模块热重载</h4><p>使用到第三方插件 <a target="_blank" rel="noopener" href="https://github.com/devilwjp/uni-pages-hot-modules">uni-pages-hot-modules</a>，该插件的主要原理就是在page.json的同级目录下创建page.js，而uniapp也会加载page.js。其他具体的看github介绍。</p>
-<blockquote>
-<p>注意点</p>
-<p>加入新的pages时需要重新运行命令行，不然页面会找不到，且热重载并不是很稳定，当修改的组件成绩较深时，有必要的话也重新运行命令行。</p>
-</blockquote>
-<h3 id="rigs"><a href="#rigs" class="headerlink" title="rigs"></a>rigs</h3><p>由于使用r-uview那么必然会接触rigs，rigs底层原理就是使用了软链接将node_modules下面的模块以类似于创建快捷方式的形式，链接到了rigs目录下。</p>
-<h4 id="使用方式-1"><a href="#使用方式-1" class="headerlink" title="使用方式"></a>使用方式</h4><p>在package.json里放置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br><span class="line">&#123;</span><br><span class="line">  ...</span><br><span class="line">  </span><br><span class="line">  <span class="attr">scripts</span>:&#123;&#125;,</span><br><span class="line">    </span><br><span class="line">  <span class="string">&quot;workspaces&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;rigs/*&quot;</span>,</span><br><span class="line">    <span class="string">&quot;rigs_dev/*&quot;</span></span><br><span class="line">  ],</span><br><span class="line">    </span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>创建vue.config.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="keyword">const</span> &#123; getPkgs &#125; = <span class="built_in">require</span>(<span class="string">&#x27;./rig_helper&#x27;</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">configureWebpack</span>: &#123;</span><br><span class="line">    <span class="attr">resolve</span>: &#123;</span><br><span class="line">      <span class="attr">symlinks</span>: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">transpileDependencies</span>: getPkgs()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意点</p>
-<ol>
-<li><p>在使用rigs前先使用 rig init 初始化，才会有getPkgs()方法</p>
-</li>
-<li><p>uniapp打包小程序时会认不到软链接，所以需要配置（具体逻辑还需看webpack）</p>
-</li>
-</ol>
-<p> resolve: {</p>
-<p>​      symlinks: false</p>
-<p> }</p>
-</blockquote>
-<h3 id="异常问题"><a href="#异常问题" class="headerlink" title="异常问题"></a>异常问题</h3><h4 id="Q1：Cannot-find-module-‘-dcloudio-uni-cli-i18n"><a href="#Q1：Cannot-find-module-‘-dcloudio-uni-cli-i18n" class="headerlink" title="Q1：Cannot find module ‘@dcloudio/uni-cli-i18n"></a>Q1：Cannot find module ‘@dcloudio/uni-cli-i18n</h4><p>在低版本的uniapp使用ruview时容易导致</p>
-<p>解决方法：yarn add -D @dcloudio/uni-cli-i18n @dcloudio/uni-i18n</p>
-<blockquote>
-<p>注意点</p>
-<p>是安装 @dcloudio/uni-cli-i18n和@dcloudio/uni-i18n</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/15/https/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
-      <meta itemprop="name" content="chen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/15/https/" class="post-title-link" itemprop="url">聊一聊HTTPS</a>
-        </h2>
-
-        <div class="post-meta">
-
-	 
-   
-     <span class="post-author" >
-       <span class="post-meta-item-text">作者&#58;</span>
-       dchen
-     </span>
-     <span class="post-meta-divider">|</span>
-   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-15 21:56:50" itemprop="dateCreated datePublished" datetime="2021-10-15T21:56:50+08:00">2021-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-26 13:32:22" itemprop="dateModified" datetime="2023-02-26T13:32:22+08:00">2023-02-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" itemprop="url" rel="index"><span itemprop="name">网络协议</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>聊一聊HTTPS</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/15/https/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/15/%E5%BE%AE%E4%BF%A1%E5%AE%A2%E6%9C%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
-      <meta itemprop="name" content="chen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dchen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/15/%E5%BE%AE%E4%BF%A1%E5%AE%A2%E6%9C%8D/" class="post-title-link" itemprop="url">微信客服接入调研</a>
-        </h2>
-
-        <div class="post-meta">
-
-	 
-   
-     <span class="post-author" >
-       <span class="post-meta-item-text">作者&#58;</span>
-       dchen
-     </span>
-     <span class="post-meta-divider">|</span>
-   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-10-15 19:54:32 / 修改时间：22:00:59" itemprop="dateCreated datePublished" datetime="2021-10-15T19:54:32+08:00">2021-10-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">微信开发</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>微信出了新的客服功能，最近小程序刚好需要新的客服功能，就进行了一些调研</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/15/%E5%BE%AE%E4%BF%A1%E5%AE%A2%E6%9C%8D/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="chen"
-      src="https://cdn.jsdelivr.net/gh/helloCx/images@master/uPic/3cWprt.jpg">
-  <p class="site-author-name" itemprop="name">chen</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">43</span>
-          <span class="site-state-item-name">日志</span>
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
         </a>
+        <h2 id="name" class="hidden-xs hidden-sm">昵称</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
       </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">12</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">15</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/helloCx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;helloCx" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:1004711601@qq.com" title="E-Mail → mailto:1004711601@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-  </div>
+      
+      <div class="search" id="search-form-wrap">
 
-
-
-      </div>
-
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">chen</span>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
 
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
         
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SSH/">SSH</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8A%A0%E5%AF%86/">加密</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8E%9F%E7%90%86/">原理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/">微信开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%89%8B%E5%86%99/">手写</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91/">日常开发</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">网络协议</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">计算机基础知识</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
 
 
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/543/" rel="tag">543</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/" rel="tag">vue2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack 　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wx/" rel="tag">wx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%91%E6%8C%87/" rel="tag">剑指</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" rel="tag">加密算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%AE%A2%E6%9C%8D/" rel="tag">微信客服</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E5%86%99/" rel="tag">手写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%9803-04/" rel="tag">面试题03.04</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
 
 
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/543/" style="font-size: 13px;">543</a> <a href="/tags/JS/" style="font-size: 14px;">JS</a> <a href="/tags/SSH/" style="font-size: 13px;">SSH</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/http/" style="font-size: 13px;">http</a> <a href="/tags/https/" style="font-size: 13px;">https</a> <a href="/tags/vue2/" style="font-size: 13px;">vue2</a> <a href="/tags/webpack/" style="font-size: 13px;">webpack 　</a> <a href="/tags/wx/" style="font-size: 13px;">wx</a> <a href="/tags/%E5%89%91%E6%8C%87/" style="font-size: 13.67px;">剑指</a> <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 13px;">加密算法</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%AE%A2%E6%9C%8D/" style="font-size: 13px;">微信客服</a> <a href="/tags/%E6%89%8B%E5%86%99/" style="font-size: 13px;">手写</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13px;">网络</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%9803-04/" style="font-size: 13.67px;">面试题03.04</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
 
 
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JS/">JS</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/03/07/%E5%8E%9F%E5%9E%8B%E9%93%BE/" class="title">原型链</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-07T06:28:58.942Z" itemprop="datePublished">2023-03-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JS/">JS</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/03/06/%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83/" class="title">词法环境</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-06T08:34:08.638Z" itemprop="datePublished">2023-03-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JS/">JS</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/03/05/%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="title">作用域、闭包</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-05T11:52:47.185Z" itemprop="datePublished">2023-03-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JS/">JS</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/03/05/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="title">内存管理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-05T07:31:05.409Z" itemprop="datePublished">2023-03-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JS/">JS</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/02/24/%E5%8E%9F%E5%9E%8B/" class="title">原型继承</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-02-24T07:26:46.199Z" itemprop="datePublished">2023-02-24</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  <main class="main" role="main">
+  
+  <div class="content article-list">
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/08/offer10-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/">Leetcode-剑指 Offer 10- I. 斐波那契数列</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/12/08/offer10-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/" class="article-date">
+	  <time datetime="2021-12-08T13:25:22.821Z" itemprop="datePublished">12月 8</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E5%89%91%E6%8C%87/" rel="tag">剑指</a>
+  </span>
 
 
-      </div>
-    </footer>
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/12/08/offer10-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/07/02.08%E7%8E%AF%E8%B7%AF%E6%A3%80%E6%B5%8B/">Leetcode-面试题02.08-环路检测</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/12/07/02.08%E7%8E%AF%E8%B7%AF%E6%A3%80%E6%B5%8B/" class="article-date">
+	  <time datetime="2021-12-07T15:27:15.540Z" itemprop="datePublished">12月 7</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  </span>
+
+    
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/12/07/02.08%E7%8E%AF%E8%B7%AF%E6%A3%80%E6%B5%8B/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/07/543-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/">leetcode-543 二叉树的直径</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/12/07/543-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" class="article-date">
+	  <time datetime="2021-12-07T15:25:20.000Z" itemprop="datePublished">12月 7</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  </span>
+
+    
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/12/07/543-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/07/622-%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/">Leetcode-622.设计循环队列</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/12/07/622-%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/" class="article-date">
+	  <time datetime="2021-12-07T15:25:17.000Z" itemprop="datePublished">12月 7</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  </span>
+
+    
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/12/07/622-%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/07/1670-%E8%AE%BE%E8%AE%A1%E5%89%8D%E4%B8%AD%E5%90%8E%E9%98%9F%E5%88%97/">Leetcode-1670-设计前中后队列</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/12/07/1670-%E8%AE%BE%E8%AE%A1%E5%89%8D%E4%B8%AD%E5%90%8E%E9%98%9F%E5%88%97/" class="article-date">
+	  <time datetime="2021-12-07T15:25:15.000Z" itemprop="datePublished">12月 7</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  </span>
+
+    
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/12/07/1670-%E8%AE%BE%E8%AE%A1%E5%89%8D%E4%B8%AD%E5%90%8E%E9%98%9F%E5%88%97/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/04/03.04-%E5%8C%96%E6%A0%88%E4%B8%BA%E9%98%9F/">leetcode-面试题03.04-化栈为队</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/12/04/03.04-%E5%8C%96%E6%A0%88%E4%B8%BA%E9%98%9F/" class="article-date">
+	  <time datetime="2021-12-04T13:11:02.580Z" itemprop="datePublished">12月 4</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%9803-04/" rel="tag">面试题03.04</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/12/04/03.04-%E5%8C%96%E6%A0%88%E4%B8%BA%E9%98%9F/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/01/543/">leetcode-543 二叉树的直径</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/12/01/543/" class="article-date">
+	  <time datetime="2021-12-01T14:34:09.602Z" itemprop="datePublished">12月 1</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/543/" rel="tag">543</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/12/01/543/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/11/20/uniapp%E4%BD%BF%E7%94%A8/" class="article-date">
+	  <time datetime="2021-11-19T16:05:45.000Z" itemprop="datePublished">11月 20</time>
+	</a>
+</span>
+    
+    
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/11/20/uniapp%E4%BD%BF%E7%94%A8/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/15/https/">聊一聊HTTPS</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/10/15/https/" class="article-date">
+	  <time datetime="2021-10-15T13:56:50.000Z" itemprop="datePublished">10月 15</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">网络协议</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/http/" rel="tag">http</a>, <a class="article-tag-link-link" href="/tags/https/" rel="tag">https</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/10/15/https/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/15/%E5%BE%AE%E4%BF%A1%E5%AE%A2%E6%9C%8D/">微信客服接入调研</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/10/15/%E5%BE%AE%E4%BF%A1%E5%AE%A2%E6%9C%8D/" class="article-date">
+	  <time datetime="2021-10-15T11:54:32.250Z" itemprop="datePublished">10月 15</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/">微信开发</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/wx/" rel="tag">wx</a>, <a class="article-tag-link-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%AE%A2%E6%9C%8D/" rel="tag">微信客服</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/10/15/%E5%BE%AE%E4%BF%A1%E5%AE%A2%E6%9C%8D/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
   </div>
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+    
+    <nav class="bar bar-footer clearfix" data-stick-bottom>
+        <div class="bar-inner">
+        <ul class="pager pull-left">
+            
+            <li class="prev">
+                <a href="/page/3/">
+                    <i class="icon icon-angle-left"></i>
+                    上一页
+                </a>
+            </li>
+            
+            
+            <li class="next">
+                <a href="/page/5/">
+                    下一页
+                    <i class="icon icon-angle-right"></i>
+                </a>
+            </li>
+            
+        </ul>
+            <div class="total-article bar-right">Page 4 of 5</div>
+        </div>
+    </nav>
+    
+ 
+</main>
 
-<script src="/js/utils.js"></script>
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
 
-<script src="/js/motion.js"></script>
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
 
 
-<script src="/js/schemes/pisces.js"></script>
+<script src="/js/application.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
 
 
 
 
-  
+
+
+   
 
 
 
@@ -1258,16 +777,6 @@
 
 
 
-
-
-
-
-
-
-
-  
-
-  
 
 </body>
 </html>
